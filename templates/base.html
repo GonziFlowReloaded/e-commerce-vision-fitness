@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='base.css') }}">
+    <title>Lizandro Ecommerce - Gym Edition</title>
+</head>
+<body>
+    <header class="bg-blue-500 text-white py-4 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">Lizandro Ecommerce - Gym Edition</h1>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container mx-auto px-4">
+            <p>&copy; 2024 Lizandro Ecommerce. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

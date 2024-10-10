@@ -1,0 +1,14 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-center text-4xl font-bold text-white mb-10">Bienvenido a Lizandro Ecommerce - Gym Edition</h1>
+    
+    <!-- Incluir el formulario de búsqueda -->
+    {% include "search_form/search_form.html" %}
+
+    <!-- Incluir el listado de productos -->
+    {% include "product_list.html" %}
+</div>
+{% endblock %}

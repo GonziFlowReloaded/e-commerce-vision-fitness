@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(to right, #006699, #00b3b3); /* Azul celeste */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+}
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+footer {
+    background-color: #004d66; /* Tono oscuro del celeste */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.form-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.form-container.show {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+}

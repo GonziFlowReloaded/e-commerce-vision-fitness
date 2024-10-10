@@ -1,0 +1,11 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('toggle-form');
+        const formContainer = document.getElementById('form-container');
+        
+        toggleButton.addEventListener('click', function () {
+            formContainer.classList.toggle('show');
+            toggleButton.textContent = formContainer.classList.contains('show') ? 'Cerrar formulario' : 'Buscar Productos';
+        });
+    });
+    </script>

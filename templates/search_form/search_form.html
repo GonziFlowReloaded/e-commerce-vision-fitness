@@ -1,0 +1,27 @@
+<div class="max-w-md mx-auto">
+    <button id="toggle-form" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-all mb-4">
+        Buscar Productos
+    </button>
+    
+    <div id="form-container" class="form-container">
+        <form method="get" action="/" class="mb-8 space-y-4 bg-white p-6 rounded-lg shadow-sm">
+            <div class="space-y-2">
+                <label for="name" class="block text-sm font-medium text-gray-700">Nombre del producto</label>
+                <input type="text" id="name" name="name" placeholder="Ej: Mancuernas, Bicicleta estática" class="w-full p-2 border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            
+            {% include "search_form/categoria.html" %}
+            
+            
+            {% include "search_form/precio_min_max.html" %}
+
+
+            <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-all">
+                Buscar
+            </button>
+        </form>
+    </div>
+</div>
+
+{% include "search_form/search_form_script.html" %}

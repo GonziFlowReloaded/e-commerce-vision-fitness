@@ -1,0 +1,11 @@
+<div class="space-y-2">
+    <label for="category" class="block text-sm font-medium text-gray-700">Categoría</label>
+    <div class="relative">
+        <select id="category" name="category" class="w-full p-2 border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">Seleccionar categoría</option>
+            {% for category in categories %}
+            <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
