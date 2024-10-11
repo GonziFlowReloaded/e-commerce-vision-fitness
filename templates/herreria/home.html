@@ -1,0 +1,11 @@
+<!-- home.html -->
+{% extends "herreria/base.html" %}
+{% block title %}Inicio - Herrería Manager{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-4">Bienvenido a Herrería Manager</h1>
+<p class="mb-4">Selecciona una opción para comenzar:</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <a href="/inventory_management" class="bg-blue-500 text-white p-4 rounded text-center">Gestión de Inventario</a>
+    <a href="/calculations" class="bg-green-500 text-white p-4 rounded text-center">Cálculos de Herrería</a>
+</div>
+{% endblock %}

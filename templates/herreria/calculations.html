@@ -1,0 +1,55 @@
+<!-- calculations.html -->
+{% extends "herreria/base.html" %}
+{% block title %}Cálculos - Herrería Manager{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-4">Cálculos de Herrería</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold mb-2">Volumen de Esfera</h2>
+        <form @submit.prevent="calculateSphere()">
+            <div class="mb-2">
+                <label for="radius" class="block">Radio (cm):</label>
+                <input type="number" step="0.1" id="radius" required class="w-full border p-2 rounded">
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Calcular</button>
+        </form>
+        <div id="sphereResult" class="mt-2"></div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold mb-2">Carbón Necesario</h2>
+        <form @submit.prevent="calculateCoal()">
+            <div class="mb-2">
+                <label for="metalWeight" class="block">Peso del Metal (kg):</label>
+                <input type="number" step="0.1" id="metalWeight" required class="w-full border p-2 rounded">
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Calcular</button>
+        </form>
+        <div id="coalResult" class="mt-2"></div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold mb-2">Costo del Proyecto</h2>
+        <form @submit.prevent="calculateProjectCost()">
+            <div class="mb-2">
+                <label for="projectMetalWeight" class="block">Peso del Metal (kg):</label>
+                <input type="number" step="0.1" id="projectMetalWeight" required class="w-full border p-2 rounded">
+            </div>
+            <div class="mb-2">
+                <label for="laborHours" class="block">Horas de Trabajo:</label>
+                <input type="number" step="0.5" id="laborHours" required class="w-full border p-2 rounded">
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Calcular</button>
+        </form>
+        <div id="projectCostResult" class="mt-2"></div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold mb-2">Verificar Stock</h2>
+        <form @submit.prevent="checkStock()">
+            <div class="mb-2">
+                <label for="neededMetal" class="block">Metal Necesario (kg):</label>
+                <input type="number" step="0.1" id="neededMetal" required class="w-full border p-2 rounded">
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Verificar</button>
+        </form>
+        <div id="stockResult" class="mt-2"></div>
+    </div>
+    {% endblock %}

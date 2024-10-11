@@ -1,0 +1,73 @@
+<!-- inventory.html -->
+{% extends "herreria/base.html" %}
+{% block title %}Inventario - Herrería Manager{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-4">Gestión de Inventario</h1>
+<div x-data="{ showForm: false }">
+    <button @click="showForm = !showForm" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">
+        Agregar Nuevo Item
+    </button>
+    <div x-show="showForm" class="mb-4">
+        <form @submit.prevent="submitForm()" class="bg-white p-4 rounded shadow">
+            <div class="mb-2">
+                <label for="name" class="block">Nombre:</label>
+                <input type="text" id="name" name="name" required class="w-full border p-2 rounded">
+            </div>
+            <div class="mb-2">
+                <label for="quantity" class="block">Cantidad:</label>
+                <input type="number" id="quantity" name="quantity" required class="w-full border p-2 rounded">
+            </div>
+            <div class="mb-2">
+                <label for="unit" class="block">Unidad:</label>
+                <input type="text" id="unit" name="unit" required class="w-full border p-2 rounded">
+            </div>
+            <div class="mb-2">
+                <label for="price_per_unit" class="block">Precio por Unidad:</label>
+                <input type="number" step="0.01" id="price_per_unit" name="price_per_unit" required class="w-full border p-2 rounded">
+            </div>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Guardar</button>
+        </form>
+    </div>
+    <table class="w-full bg-white shadow-md rounded mb-4">
+        <thead>
+            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                <th class="py-3 px-6 text-left">ID</th>
+                <th class="py-3 px-6 text-left">Nombre</th>
+                <th class="py-3 px-6 text-left">Cantidad</th>
+                <th class="py-3 px-6 text-left">Unidad</th>
+                <th class="py-3 px-6 text-left">Precio por Unidad</th>
+            </tr>
+        </thead>
+        <tbody class="text-gray-600 text-sm font-light">
+            {% for item in inventory %}
+            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                <td class="py-3 px-6 text-left whitespace-nowrap">{{ item.id }}</td>
+                <td class="py-3 px-6 text-left">{{ item.name }}</td>
+                <td class="py-3 px-6 text-left">{{ item.quantity }}</td>
+                <td class="py-3 px-6 text-left">{{ item.unit }}</td>
+                <td class="py-3 px-6 text-left">{{ item.price_per_unit }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    function submitForm() {
+        const form = document.querySelector('form');
+        const formData = new FormData(form);
+        fetch('/api/inventory', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Item added successfully');
+                location.reload();
+            } else {
+                alert('Error adding item');
+            }
+        });
+    }
+</script>
+{% endblock %}

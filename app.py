@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles  # Importa StaticFiles
 from pydantic import BaseModel
 from typing import List, Optional
-from routes import estadistica
+from routes import estadistica, gestion
 
 
 app = FastAPI()
@@ -16,6 +16,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 app.include_router(estadistica.router)
+app.include_router(gestion.router)
 # Modelo de producto usando Pydantic
 class Product(BaseModel):
     name: str
